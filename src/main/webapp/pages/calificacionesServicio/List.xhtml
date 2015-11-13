@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCalificacionesServicioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCalificacionesServicioEmpty}" rendered="#{calificacionesServicioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{calificacionesServicioController.items.rowCount > 0}">
+                    <h:outputText value="#{calificacionesServicioController.pagination.pageFirstItem + 1}..#{calificacionesServicioController.pagination.pageLastItem + 1}/#{calificacionesServicioController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{calificacionesServicioController.previous}" value="#{bundle.Previous} #{calificacionesServicioController.pagination.pageSize}" rendered="#{calificacionesServicioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{calificacionesServicioController.next}" value="#{bundle.Next} #{calificacionesServicioController.pagination.pageSize}" rendered="#{calificacionesServicioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{calificacionesServicioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_idServicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idServicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_puntuacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.puntuacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_comentario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comentario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_SEDESidsede}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.SEDESidsede}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCalificacionesServicioTitle_servicios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.servicios}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{calificacionesServicioController.prepareView}" value="#{bundle.ListCalificacionesServicioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{calificacionesServicioController.prepareEdit}" value="#{bundle.ListCalificacionesServicioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{calificacionesServicioController.destroy}" value="#{bundle.ListCalificacionesServicioDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{calificacionesServicioController.prepareCreate}" value="#{bundle.ListCalificacionesServicioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCalificacionesServicioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

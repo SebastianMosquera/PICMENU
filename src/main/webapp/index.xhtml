@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:composition template="/WEB-INF/Template.xhtml">
+
+        <ui:define name="title">
+            PicMenu
+        </ui:define>
+        
+        <ui:define name="body">
+            <h:panelGroup rendered="#{!loginController.authenticated}">
+        
+        <form jsf:id="loginForm">
+        <input type="email"
+               placeholder="Correo ELectronico"
+               requiered="true"
+               jsf:value="#{loginController.username}"/>
+        <input type="password"
+               placeholder="Contraseña"
+               requiered="true"
+               jsf:value="#{loginController.password}"/>
+        <button type="submit"
+                jsf:action="#{loginController.login}">
+        Ingresar
+        </button>
+    </form>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{!loginController.authenticated}">           
+            <div class="div">
+                <section class="column-1">
+                    <p class="title">Mis Restaurantes</p>
+                    <a href="" class="profile-link ">restaurante 1</a>
+                    <a href="" class="profile-link ">restaurante 2</a>
+                    <a href="" class="profile-link">restaurante 3</a>
+                    <a href="" class="profile-link">restaurante 4</a>
+                </section>
+            </div>
+            <div class="div">
+                <section class="column-2">
+                    <p class="title">Ultimas Promociones</p>
+                    <a href="" class="profile-link">restaurante 1</a>
+                    <a href="" class="profile-link">restaurante 2</a>
+                    <a href="" class="profile-link">restaurante 3</a>
+                    <a href="" class="profile-link">restaurante 4</a>
+                </section>
+            </div>
+            <div class="div">
+                <section class="column-3">
+                    <p class="title">Ranking</p>
+                    <a href="" class="profile-link">restaurante 1</a>
+                    <a href="" class="profile-link">restaurante 2</a>
+                    <a href="" class="profile-link">restaurante 3</a>
+                    <a href="" class="profile-link">restaurante 4</a>
+                </section>
+            </div> 
+            </h:panelGroup>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTipoPedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_idTIPOPEDIDO}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.idTIPOPEDIDO}" title="#{bundle.ViewTipoPedidoTitle_idTIPOPEDIDO}"/>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_clientePedido}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.clientePedido}" title="#{bundle.ViewTipoPedidoTitle_clientePedido}"/>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_fechaPedido}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.fechaPedido}" title="#{bundle.ViewTipoPedidoTitle_fechaPedido}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_horaPedido}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.horaPedido}" title="#{bundle.ViewTipoPedidoTitle_horaPedido}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_fechaPedidoCancelacion}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.fechaPedidoCancelacion}" title="#{bundle.ViewTipoPedidoTitle_fechaPedidoCancelacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_horaPedidoCancelacion}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.horaPedidoCancelacion}" title="#{bundle.ViewTipoPedidoTitle_horaPedidoCancelacion}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTipoPedidoLabel_idPEDIDOS}"/>
+                    <h:outputText value="#{tipoPedidoController.selected.idPEDIDOS}" title="#{bundle.ViewTipoPedidoTitle_idPEDIDOS}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tipoPedidoController.destroyAndView}" value="#{bundle.ViewTipoPedidoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTipoPedidoEditLink}"/>
+                <br />
+                <h:commandLink action="#{tipoPedidoController.prepareCreate}" value="#{bundle.ViewTipoPedidoCreateLink}" />
+                <br />
+                <h:commandLink action="#{tipoPedidoController.prepareList}" value="#{bundle.ViewTipoPedidoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTipoPedidoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDepartamentosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_idDepartamento}" for="idDepartamento" />
+                    <h:inputText id="idDepartamento" value="#{departamentosController.selected.idDepartamento}" title="#{bundle.EditDepartamentosTitle_idDepartamento}" required="true" requiredMessage="#{bundle.EditDepartamentosRequiredMessage_idDepartamento}"/>
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_nombreDepartamento}" for="nombreDepartamento" />
+                    <h:inputText id="nombreDepartamento" value="#{departamentosController.selected.nombreDepartamento}" title="#{bundle.EditDepartamentosTitle_nombreDepartamento}" required="true" requiredMessage="#{bundle.EditDepartamentosRequiredMessage_nombreDepartamento}"/>
+                    <h:outputLabel value="#{bundle.EditDepartamentosLabel_idPais}" for="idPais" />
+                    <h:selectOneMenu id="idPais" value="#{departamentosController.selected.idPais}" title="#{bundle.EditDepartamentosTitle_idPais}" required="true" requiredMessage="#{bundle.EditDepartamentosRequiredMessage_idPais}">
+                        <f:selectItems value="#{paisesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{departamentosController.update}" value="#{bundle.EditDepartamentosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDepartamentosViewLink}"/>
+                <br />
+                <h:commandLink action="#{departamentosController.prepareList}" value="#{bundle.EditDepartamentosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDepartamentosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

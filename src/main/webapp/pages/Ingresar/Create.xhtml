@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <ui:composition template="/WEB-INF/Template.xhtml">
+
+        <ui:define name="body">
+            <div class="Register-user">
+
+                <form class="Form-register"  jsf:id="usuarioCreateForm">
+                    
+                    <input class="E-mail" type="email"
+                           placeholder="Correo ELectronico"
+                           required="true"
+                           jsf:value="#{usuarioController.selectedUsuario.email}"/>
+
+                    
+                    <input class="password" type="password"
+                           placeholder="Contraseña"
+                           required="true"
+                           jsf:value="#{usuarioController.selectedUsuario.password}"/>
+
+                    <button class="button-guardar" type="submit" 
+                            jsf:actionListener="#{usuarioController.create}"
+                            jsf:action="List">
+                        Guardar
+                    </button>                   
+                    <button class="button-cancele" type="button"
+                            jsf:outcome="List">
+                        Cancelar
+                    </button>
+                </form>     
+
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

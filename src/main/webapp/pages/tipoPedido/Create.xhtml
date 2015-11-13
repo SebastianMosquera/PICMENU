@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTipoPedidoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_idTIPOPEDIDO}" for="idTIPOPEDIDO" />
+                    <h:inputText id="idTIPOPEDIDO" value="#{tipoPedidoController.selected.idTIPOPEDIDO}" title="#{bundle.CreateTipoPedidoTitle_idTIPOPEDIDO}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_idTIPOPEDIDO}"/>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_clientePedido}" for="clientePedido" />
+                    <h:inputText id="clientePedido" value="#{tipoPedidoController.selected.clientePedido}" title="#{bundle.CreateTipoPedidoTitle_clientePedido}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_clientePedido}"/>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_fechaPedido}" for="fechaPedido" />
+                    <h:inputText id="fechaPedido" value="#{tipoPedidoController.selected.fechaPedido}" title="#{bundle.CreateTipoPedidoTitle_fechaPedido}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_fechaPedido}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_horaPedido}" for="horaPedido" />
+                    <h:inputText id="horaPedido" value="#{tipoPedidoController.selected.horaPedido}" title="#{bundle.CreateTipoPedidoTitle_horaPedido}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_horaPedido}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_fechaPedidoCancelacion}" for="fechaPedidoCancelacion" />
+                    <h:inputText id="fechaPedidoCancelacion" value="#{tipoPedidoController.selected.fechaPedidoCancelacion}" title="#{bundle.CreateTipoPedidoTitle_fechaPedidoCancelacion}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_fechaPedidoCancelacion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_horaPedidoCancelacion}" for="horaPedidoCancelacion" />
+                    <h:inputText id="horaPedidoCancelacion" value="#{tipoPedidoController.selected.horaPedidoCancelacion}" title="#{bundle.CreateTipoPedidoTitle_horaPedidoCancelacion}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_horaPedidoCancelacion}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateTipoPedidoLabel_idPEDIDOS}" for="idPEDIDOS" />
+                    <h:selectOneMenu id="idPEDIDOS" value="#{tipoPedidoController.selected.idPEDIDOS}" title="#{bundle.CreateTipoPedidoTitle_idPEDIDOS}" required="true" requiredMessage="#{bundle.CreateTipoPedidoRequiredMessage_idPEDIDOS}">
+                        <f:selectItems value="#{pedidosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tipoPedidoController.create}" value="#{bundle.CreateTipoPedidoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tipoPedidoController.prepareList}" value="#{bundle.CreateTipoPedidoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTipoPedidoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
