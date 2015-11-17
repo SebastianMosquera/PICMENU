@@ -1,0 +1,394 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('/fonts/icomoon.eot?-1accqs');
+	src:url('/fonts/icomoon.eot?#iefix-1accqs') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?-1accqs') format('truetype'),
+		url('../fonts/icomoon.woff?-1accqs') format('woff'),
+		url('../fonts/icomoon.svg?-1accqs#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+	content: "\e603";
+        color:yellow; 
+        font-size: 10em;
+        rigth:10em;
+        position:fixed;
+        top:2.6em;
+        left: 23em;
+        z-index: 1;
+}
+/*.icon-facebook2:before {
+	content: "\e600";
+        color:gray; 
+        font-size: 1em;
+        rigth:90em;
+        position:fixed;
+        top:2.6em;
+        left: 23em;
+        
+}
+.icon-twitter3:before {
+	content: "\e601";
+        color:gray; 
+        font-size: 1em;
+        rigth:90em;
+        position:fixed;
+        top:2.6em;
+        left: 23em;
+}
+.icon-youtube3:before {
+	content: "\e602";color:gray; 
+        font-size: 1em;
+        rigth:90em;
+        position:fixed;
+        top:2.6em;
+        left: 23em;
+}
+
+/*.icon-search:before {
+	content: "\e600";
+        color:gray; 
+        font-size: 1em;
+        rigth:90em;
+        position:fixed;
+        top:2.6em;
+        left: 23em;}*/
+        
+
+
+body{
+    margin:0;
+}
+.Search{
+    text-align: center; 
+}
+.Header{
+    
+    
+    text-align: center;
+    padding-bottom: 2em;
+    
+    margin:0;
+}
+.MainMenu{
+    background: #394a5a;
+    height: 6em;
+    line-height: .1em;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.Body{
+    background:lightgreen;
+    padding-top: 4em;
+    
+    
+
+}
+.Header-Image{
+    border-radius: 2em;
+}
+
+.Header-imageContainer{
+    text-align:center;
+    
+    
+}
+.Password{
+    display: block;
+    margin-top: 2em;
+    border-radius: 3em;
+    border:none;
+       
+       
+        
+    }
+.MainMenu-item{
+    text-decoration: none;
+    width: 90em;
+    text-align: center;
+    }
+    
+.Login{
+    margin-left: 3em;
+        
+        
+    }
+    
+.Sesion{
+    margin-left: 3em;
+    font-size: 3em;
+        
+    }
+.BottomGuardar{
+    background-color: yellow;
+    margin-top: 1em;
+    border-radius: 25%;
+    }
+.EmailID{
+    border-radius: 2em;
+    border:none;
+    }
+.Search2{
+    border-radius: 3em;
+    padding: 1.1em;
+    padding-left: 2em;
+    border:none;
+     
+    }
+.Search1{
+    display: inline-block;
+    padding-bottom: 1em;
+    }
+.Search3{
+    border-radius: 10em;;
+    margin-right: 5em;
+    margin-left: 1em;
+    background-color: #00a7ff;
+    border:none;
+    text-align: center;
+    color:white;
+    margin:.5em;
+    padding: 1em;
+        
+    }
+.MainMenu-link{
+    text-align: center;
+    text-decoration: none;
+    display:block;
+    padding: .3em .1em;
+    color:whitesmoke;
+    border-right: .1em solid #00a7ff;
+    font-size: 1.1em;
+    
+    }
+    .MainMenu-link2{
+    text-align: center;
+    text-decoration: none;
+    display:block;
+    padding: .3em .1em;
+    color:whitesmoke;
+    border-right: .1em solid #00a7ff;
+    font-size: 1.1em;
+    
+    }
+.MainMenu-item{
+    padding:0;
+    margin: 0;
+    display: inline-block;
+    text-align: right;
+    width: 6em;
+    }
+        
+.buttonguardar{
+    color: black;
+    border-radius: 50%;
+    background-color:  #26b2f2;
+    border:none;
+    margin-right: 10em;
+    padding: 1em;
+    color:white;
+    }
+.Footer{
+    text-align: center;
+    background-color:#394a5a;
+    border:0;
+    height: 10em;
+    margin: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    
+        
+ }
+.FooterItem
+        {
+    
+    display: inline-block;
+    text-decoration: none;
+    display:inline-block;
+    padding: 1em 1em;
+    color:white;
+    margin:0;
+    padding-right: 0em;
+    padding-left:0;
+    width:8em;
+    margin-top: 3em;
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    position: relative;
+    border-radius: .5em;
+    background-color: #00a7ff;
+    
+    }
+
+    
+    
+    
+        
+    
+    .page1{
+        border-radius: 50%;
+        display: block;
+    }
+    .title{
+        color: #00a7ff;
+        font-size: 2em;
+        text-align: center;
+        text-decoration: none;
+        display:inline-block;
+        padding-bottom: 2em;
+        margin:0;
+        padding-right: 1em;
+        padding-left: 1em;
+        width: 10.1em;
+        margin-top: 4em;
+        
+         
+    }
+    .profile-link{
+        text-decoration: none;
+        display: block;
+        margin:0;
+        text-align: center;
+        border-right: .3em;
+        margin-bottom: 1em;
+        
+    }
+    .div{
+        display: inline-block;
+        margin-bottom: 15em;
+        margin-left: 2em;
+        position:relative;
+        background-color: whitesmoke;
+        margin-top: 3em;
+        border-radius: 1em;
+        padding-bottom: 6em;
+        margin-right: 1em;
+        margin-top: 10em;
+        
+        
+        
+    }
+    .FooterContainer{
+        margin-top: 15em;
+        
+    }
+    //aqui empieza aplicar estilos para create.xhtml//
+    
+    .name{
+        color:red;
+        
+    }
+    body{
+        background-color: lime;
+    }
+    .name1,.name2,.name3,.name4{
+        border-radius: 3em;
+        padding: 1em;
+        padding-left: 2em;
+        border:none;
+        display: block;
+        margin: 1em;
+        
+    }
+    .password{
+        border-radius: 3em;
+        padding: 1.1em;
+        padding-left: 2em;
+        border:none;
+        display: block;
+        text-align: center;
+         
+    }
+    .city{
+        border-radius: 3em;
+        margin: 1em;
+        padding: 1em;
+        background-color: whitesmoke;
+        text-align: center;
+        position: relative;
+        padding-left: 2em;
+        
+    }
+    .birth-date{
+        border-radius: 3em;
+        padding: 1.1em;
+        padding-left: 2em;
+        border:none;
+        display: block;
+        
+    }
+    .button-guardar{
+        border-radius: 3em;
+        padding: 1.1em;
+        padding-left: 1em;
+        border:none;
+        display: block;
+        
+    }
+    .button-cancele{
+        border-radius: 3em;
+        padding: 1.1em;
+        padding-left: 1em;
+        border:none;
+        display: block;
+        
+        
+    }
+    .E-mail{
+        border-radius: 3em;
+        padding: 1.1em;
+        padding-left: 1em;
+        border:none;
+        display: block;
+        
+           
+    }
+    .title-register{
+        color: lime;
+        font-size: 3em;
+        text-align: center;
+        padding-top: 1em;
+        margin: 0;
+        border-radius: 3em;
+        background-color:#394a5a;
+    }
+    .Register-user{
+        margin: 0;
+        padding:10em;
+        text-align: center;
+    }
+    .Form-register{
+        max-width: 300px;
+        display: inline-block;
+        
+    }
+    
+    /*responsive design*/
+    @media screen and (max-width:400px){
+        .div{
+            
+        }
+    }
+    

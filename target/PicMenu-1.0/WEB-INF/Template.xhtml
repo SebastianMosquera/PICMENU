@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <head jsf:id="head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content ="whidth=device-whidth,minimum-scale=1,maximum-scale=1"/>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'></link>
+       <link rel="stylesheet" href="#{request.contextPath}/resources/css/estilos.css"></link> 
+        <link rel="stylesheet" href="#{request.contextPath}/resources/css/normalize.css"></link>
+        <title><ui:insert name="title">PicMenu</ui:insert></title>
+    </head>
+    <body jsf:id="body">
+        <header class="Header">
+            <nav class="MainMenu ">
+
+                <ul>
+
+                    <form class="Search1 icon-search" >   
+                        <input class="Search2 "
+                               type="search"
+                               size="25"
+                               placeholder="¿Que Restaurantes Buscas?"
+                               requiered="true"/>
+                    </form>
+                    <button class="Search3" type="submit">Buscar</button>
+
+                    <li class="MainMenu-item">
+                        <a jsf:outcome="/index.xhtml" class="MainMenu-link">Inicio</a>
+                    </li>
+                    <li class="MainMenu-item"><a jsf:outcome="/pages/Usuario/Create.xhtml" class="MainMenu-link">Registrarse</a></li>
+                    <li class="MainMenu-item"><a jsf:outcome="/pages/Ingresar/Create.xhtml" class="MainMenu-link2">Ingresar</a></li>
+
+                </ul>
+
+            </nav>
+        </header>   
+
+        <ui:insert name="body">
+            default body
+        </ui:insert>
+        <Footer class="Footer">
+
+
+            <a class="FooterItem">Condiciones</a>
+            <a class="FooterItem">Políticas</a>
+            <a class="FooterItem">¿Quienes Somos?</a>
+            <a class="FooterItem">Contáctenos</a>
+            <a class="FooterItem">Publicidad</a>
+        </Footer>
+
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewServiciosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewServiciosLabel_idServicio}"/>
+                    <h:outputText value="#{serviciosController.selected.idServicio}" title="#{bundle.ViewServiciosTitle_idServicio}"/>
+                    <h:outputText value="#{bundle.ViewServiciosLabel_nombre}"/>
+                    <h:outputText value="#{serviciosController.selected.nombre}" title="#{bundle.ViewServiciosTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewServiciosLabel_descripcion}"/>
+                    <h:outputText value="#{serviciosController.selected.descripcion}" title="#{bundle.ViewServiciosTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewServiciosLabel_valor}"/>
+                    <h:outputText value="#{serviciosController.selected.valor}" title="#{bundle.ViewServiciosTitle_valor}"/>
+                    <h:outputText value="#{bundle.ViewServiciosLabel_idTipoServicio}"/>
+                    <h:outputText value="#{serviciosController.selected.idTipoServicio}" title="#{bundle.ViewServiciosTitle_idTipoServicio}"/>
+                    <h:outputText value="#{bundle.ViewServiciosLabel_calificacionesServicio}"/>
+                    <h:outputText value="#{serviciosController.selected.calificacionesServicio}" title="#{bundle.ViewServiciosTitle_calificacionesServicio}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{serviciosController.destroyAndView}" value="#{bundle.ViewServiciosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewServiciosEditLink}"/>
+                <br />
+                <h:commandLink action="#{serviciosController.prepareCreate}" value="#{bundle.ViewServiciosCreateLink}" />
+                <br />
+                <h:commandLink action="#{serviciosController.prepareList}" value="#{bundle.ViewServiciosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewServiciosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -8,6 +8,8 @@ package com.picmenu.jpa.sessions;
 import com.picmenu.jpa.entities.Usuarios;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -26,6 +28,18 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
 
     public UsuariosFacade() {
         super(Usuarios.class);
+    }
+    public Usuarios findByCorreoElectronico (String correoelectronico){
+        try{
+            return (Usuarios) entityManager.createNamedQuery("Usuarios.findByCorreoElectronico")
+                    .setParameter("correoelectronico", correoelectronico)
+                    .getSingleResult();
+            
+        }catch(NonUniqueResultException ex){
+            throw ex;
+        }catch(NoResultException ex){
+            return null;
+        }
     }
     
 }

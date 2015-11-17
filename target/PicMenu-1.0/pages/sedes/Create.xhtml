@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSedesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_idSede}" for="idSede" />
+                    <h:inputText id="idSede" value="#{sedesController.selected.idSede}" title="#{bundle.CreateSedesTitle_idSede}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_idSede}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{sedesController.selected.nombre}" title="#{bundle.CreateSedesTitle_nombre}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{sedesController.selected.telefono}" title="#{bundle.CreateSedesTitle_telefono}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_correo}" for="correo" />
+                    <h:inputText id="correo" value="#{sedesController.selected.correo}" title="#{bundle.CreateSedesTitle_correo}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_correo}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{sedesController.selected.direccion}" title="#{bundle.CreateSedesTitle_direccion}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_barrio}" for="barrio" />
+                    <h:inputText id="barrio" value="#{sedesController.selected.barrio}" title="#{bundle.CreateSedesTitle_barrio}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_barrio}"/>
+                    <h:outputLabel value="#{bundle.CreateSedesLabel_idRestaurantes}" for="idRestaurantes" />
+                    <h:selectOneMenu id="idRestaurantes" value="#{sedesController.selected.idRestaurantes}" title="#{bundle.CreateSedesTitle_idRestaurantes}" required="true" requiredMessage="#{bundle.CreateSedesRequiredMessage_idRestaurantes}">
+                        <f:selectItems value="#{restaurantesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sedesController.create}" value="#{bundle.CreateSedesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{sedesController.prepareList}" value="#{bundle.CreateSedesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSedesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

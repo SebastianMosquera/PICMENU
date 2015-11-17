@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRestaurantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRestaurantesLabel_idRestaurantes}" for="idRestaurantes" />
+                    <h:inputText id="idRestaurantes" value="#{restaurantesController.selected.idRestaurantes}" title="#{bundle.EditRestaurantesTitle_idRestaurantes}" required="true" requiredMessage="#{bundle.EditRestaurantesRequiredMessage_idRestaurantes}"/>
+                    <h:outputLabel value="#{bundle.EditRestaurantesLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{restaurantesController.selected.nombre}" title="#{bundle.EditRestaurantesTitle_nombre}" required="true" requiredMessage="#{bundle.EditRestaurantesRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditRestaurantesLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{restaurantesController.selected.telefono}" title="#{bundle.EditRestaurantesTitle_telefono}" required="true" requiredMessage="#{bundle.EditRestaurantesRequiredMessage_telefono}"/>
+                    <h:outputLabel value="#{bundle.EditRestaurantesLabel_correo}" for="correo" />
+                    <h:inputText id="correo" value="#{restaurantesController.selected.correo}" title="#{bundle.EditRestaurantesTitle_correo}" required="true" requiredMessage="#{bundle.EditRestaurantesRequiredMessage_correo}"/>
+                    <h:outputLabel value="#{bundle.EditRestaurantesLabel_idUsuario}" for="idUsuario" />
+                    <h:selectOneMenu id="idUsuario" value="#{restaurantesController.selected.idUsuario}" title="#{bundle.EditRestaurantesTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditRestaurantesRequiredMessage_idUsuario}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{restaurantesController.update}" value="#{bundle.EditRestaurantesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRestaurantesViewLink}"/>
+                <br />
+                <h:commandLink action="#{restaurantesController.prepareList}" value="#{bundle.EditRestaurantesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRestaurantesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

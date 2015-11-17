@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSedesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSedesLabel_idSede}"/>
+                    <h:outputText value="#{sedesController.selected.idSede}" title="#{bundle.ViewSedesTitle_idSede}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_nombre}"/>
+                    <h:outputText value="#{sedesController.selected.nombre}" title="#{bundle.ViewSedesTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_telefono}"/>
+                    <h:outputText value="#{sedesController.selected.telefono}" title="#{bundle.ViewSedesTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_correo}"/>
+                    <h:outputText value="#{sedesController.selected.correo}" title="#{bundle.ViewSedesTitle_correo}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_direccion}"/>
+                    <h:outputText value="#{sedesController.selected.direccion}" title="#{bundle.ViewSedesTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_barrio}"/>
+                    <h:outputText value="#{sedesController.selected.barrio}" title="#{bundle.ViewSedesTitle_barrio}"/>
+                    <h:outputText value="#{bundle.ViewSedesLabel_idRestaurantes}"/>
+                    <h:outputText value="#{sedesController.selected.idRestaurantes}" title="#{bundle.ViewSedesTitle_idRestaurantes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sedesController.destroyAndView}" value="#{bundle.ViewSedesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSedesEditLink}"/>
+                <br />
+                <h:commandLink action="#{sedesController.prepareCreate}" value="#{bundle.ViewSedesCreateLink}" />
+                <br />
+                <h:commandLink action="#{sedesController.prepareList}" value="#{bundle.ViewSedesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSedesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRestaurantesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRestaurantesEmpty}" rendered="#{restaurantesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{restaurantesController.items.rowCount > 0}">
+                    <h:outputText value="#{restaurantesController.pagination.pageFirstItem + 1}..#{restaurantesController.pagination.pageLastItem + 1}/#{restaurantesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{restaurantesController.previous}" value="#{bundle.Previous} #{restaurantesController.pagination.pageSize}" rendered="#{restaurantesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{restaurantesController.next}" value="#{bundle.Next} #{restaurantesController.pagination.pageSize}" rendered="#{restaurantesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{restaurantesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantesTitle_idRestaurantes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRestaurantes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantesTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantesTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantesTitle_correo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRestaurantesTitle_idUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{restaurantesController.prepareView}" value="#{bundle.ListRestaurantesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{restaurantesController.prepareEdit}" value="#{bundle.ListRestaurantesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{restaurantesController.destroy}" value="#{bundle.ListRestaurantesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{restaurantesController.prepareCreate}" value="#{bundle.ListRestaurantesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRestaurantesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

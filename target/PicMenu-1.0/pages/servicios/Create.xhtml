@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateServiciosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_idServicio}" for="idServicio" />
+                    <h:inputText id="idServicio" value="#{serviciosController.selected.idServicio}" title="#{bundle.CreateServiciosTitle_idServicio}" required="true" requiredMessage="#{bundle.CreateServiciosRequiredMessage_idServicio}"/>
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{serviciosController.selected.nombre}" title="#{bundle.CreateServiciosTitle_nombre}" required="true" requiredMessage="#{bundle.CreateServiciosRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{serviciosController.selected.descripcion}" title="#{bundle.CreateServiciosTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateServiciosRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{serviciosController.selected.valor}" title="#{bundle.CreateServiciosTitle_valor}" required="true" requiredMessage="#{bundle.CreateServiciosRequiredMessage_valor}"/>
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_idTipoServicio}" for="idTipoServicio" />
+                    <h:selectOneMenu id="idTipoServicio" value="#{serviciosController.selected.idTipoServicio}" title="#{bundle.CreateServiciosTitle_idTipoServicio}" required="true" requiredMessage="#{bundle.CreateServiciosRequiredMessage_idTipoServicio}">
+                        <f:selectItems value="#{tiposServicioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateServiciosLabel_calificacionesServicio}" for="calificacionesServicio" />
+                    <h:selectOneMenu id="calificacionesServicio" value="#{serviciosController.selected.calificacionesServicio}" title="#{bundle.CreateServiciosTitle_calificacionesServicio}" >
+                        <f:selectItems value="#{calificacionesServicioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{serviciosController.create}" value="#{bundle.CreateServiciosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{serviciosController.prepareList}" value="#{bundle.CreateServiciosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateServiciosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
