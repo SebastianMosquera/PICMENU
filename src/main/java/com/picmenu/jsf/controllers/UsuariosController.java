@@ -233,15 +233,15 @@ public class UsuariosController implements Serializable {
         }
 
     }
-    public void validarCorreo(FacesContext context, UIComponent component, Object value)
-            throws ValidatorException {
-        String correoelectronico = (String) value;
-        if (UsuariosFacade.findByCorreoElectronico(correoelectronico) != null) {
-            
-            throw new ValidatorException(new FacesMessage(
-                    FacesMessage.SEVERITY_ERROR, "El Correo Electonico Ya Se Encuentra Registrado", ""));
-        }
-        Usuarios.setcorreo(correoelectronico);
-    }
+//    public void validarCorreo(FacesContext context, UIComponent component, Object value)
+//            throws ValidatorException {
+//        String correoelectronico = (String) value;
+//        if (UsuariosFacade.findByCorreoElectronico(correoelectronico) != null) {
+//            
+//            throw new ValidatorException(new FacesMessage(
+//                    FacesMessage.SEVERITY_ERROR, "El Correo Electonico Ya Se Encuentra Registrado", ""));
+//        }
+//        Usuarios.setcorreo(correoelectronico);
+//    }
 
 }
