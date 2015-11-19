@@ -7,34 +7,28 @@
 
         <ui:define name="body">
             <div class="Register-user">
-
                 <form class="Form-register"  jsf:id="usuarioCreateForm">
-                    
-                    <input class="E-mail" type="email"
-                           placeholder="Correo ELectronico"
+                    <input class="input" type="email"
+                           placeholder="Correo El ectronico"
                            required="true"
-                           jsf:value="#{usuarioController.selectedUsuario.email}"/>
-
-                    
-                    <input class="password" type="password"
+                           jsf:value="#{usuarioController.selectedUsuario.email}"/>                    
+                    <input class="input" type="password"
                            placeholder="Contraseña"
                            required="true"
                            jsf:value="#{usuarioController.selectedUsuario.password}"/>
-
-                    <button class="button-guardar" type="submit" 
+                    <div>
+                    <button class="input-ingresar" type="submit" 
                             jsf:actionListener="#{usuarioController.create}"
                             jsf:action="List">
                         Guardar
-                    </button>                   
-                    <button class="button-cancele" type="button"
+                    </button>
+                    <button class="input-cancelar" type="button"
                             jsf:outcome="List">
                         Cancelar
                     </button>
-                </form>     
-
+                    </div>
+                </form>
             </div>
         </ui:define>
     </ui:composition>
-
 </html>
-

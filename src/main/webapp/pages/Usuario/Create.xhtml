@@ -13,32 +13,36 @@
             </h:panelGroup>
             <h:form class="Form-register">
                 <h:panelGrid columns="2">
-               
+                    <div class="titulo-registro">
+                    <h1 class="title-register">Bienvenido a PicMenu</h1>
+                    <h2>Registrate y reserva lo que quieras cuando quieras...!!!</h2>
+                    </div>               
+                    <div class="div-register">
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_nombres}" 
                                    for="nombres" />
                     <input       id="nombres" 
+                                 class="input"
                                  value="#{usuariosController.selected.nombres}" 
                                  type="text" 
                                  placeholder="Nombre"
                                  required="true" 
-                                 requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombres}">
-                                
-                    </input>
-                    
+                                 requiredMessage="#{bundle.CreateUsuariosRequiredMessage_nombres}">                                
+                    </input>                    
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_apellidos}" 
                                    for="apellidos" />
-                    <input id="apellidos" 
+                    <input id="apellidos"
+                                 class="input"
                                  type="text"
                                  placeholder="Apellidos"
                                  value="#{usuariosController.selected.apellidos}"
                                  title="#{bundle.CreateUsuariosTitle_apellidos}" 
                                  required="true" requiredMessage="#{bundle.CreateUsuariosRequiredMessage_apellidos}">
-                    </input>
-                    
+                    </input>                    
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_telefono}" 
                                    for="telefono" />
                     <input id="telefono"
                                  type="num"
+                                 class="input"
                                  placeholder="Telefono"
                                  value="#{usuariosController.selected.telefono}"
                                  title="#{bundle.CreateUsuariosTitle_telefono}"
@@ -47,88 +51,80 @@
                     </input>
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_direccion}"
                                    for="direccion" />
-                    <input id="direccion" 
+                    <input id="direccion"
                            type="text"
+                           class="input"
                            placeholder="Direccion"
-                                 value="#{usuariosController.selected.direccion}" 
-                                 title="#{bundle.CreateUsuariosTitle_direccion}" 
-                                 required="true" 
+                                 value="#{usuariosController.selected.direccion}"
+                                 title="#{bundle.CreateUsuariosTitle_direccion}"
+                                 required="true"
                                  requiredMessage="#{bundle.CreateUsuariosRequiredMessage_direccion}">
                     </input>
-                    
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_email}" 
                                    for="email" />
-                    
                     <input       id="email"
+                                 class="input"
                                  type=""
-                                 placeholder="Correo Electronico"
-                                 
+                                 placeholder="Correo Electronico"                                 
                                  value="#{usuariosController.selected.email}"
-                                 title="#{bundle.CreateUsuariosTitle_email}" 
+                                 title="#{bundle.CreateUsuariosTitle_email}"
                                  requiredMessage="#{bundle.CreateUsuariosRequiredMessage_email}"
                                  required="true" >
-                      
                     </input>
+                    </div>
+                    <div>
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_fechaNac}"
                                    for="fechaNac" />
                     <input id="fechaNac"
                            type="date"
+                           class="input"
                                  value="#{usuariosController.selected.fechaNac}"
-                                 title="#{bundle.CreateUsuariosTitle_fechaNac}" 
-                                 required="true" 
-                                 requiredMessage="#{bundle.CreateUsuariosRequiredMessage_fechaNac}">
-                        
-                            
+                                 title="#{bundle.CreateUsuariosTitle_fechaNac}"
+                                 required="true"
+                                 requiredMessage="#{bundle.CreateUsuariosRequiredMessage_fechaNac}"
+                                 placeholder="Fecha de nacimiento">
                     </input>
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_sexo}"
-                                   for="sexo" />
-                   
+                                   for="sexo" />                   
                     <h:selectOneMenu
-                                 id="sexo" 
-                                 value="#{usuariosController.selected.sexo}" 
+                                 id="sexo"
+                                 value="#{usuariosController.selected.sexo}"
                                  required="true"
+                                 class="input"
                                  requiredMessage="#{bundle.CreateUsuariosRequiredMessage_sexo}">
                         <f:selectItem itemLabel="Seleccione Su Sexo"/>
                         <f:selectItem itemLabel="Masculino" itemValue="M"/>
                         <f:selectItem itemLabel="Femenino" itemValue="F"/>
-                    </h:selectOneMenu>
-                    
+                    </h:selectOneMenu>                    
                     <h:outputLabel value="#{bundle.CreateUsuariosLabel_password}"
-                                   for="password" />
-                    
-                    <input     id="password" 
-                                 value="#{usuariosController.selected.password}" 
-                                 title="#{bundle.CreateUsuariosTitle_password}" 
-                                 required="true" 
+                                   for="password"/>
+                    <input     id="password"
+                                 value="#{usuariosController.selected.password}"
+                                 title="#{bundle.CreateUsuariosTitle_password}"
+                                 required="true"
                                  type="password"
+                                 class="input"
                                  placeholder="Contraseña"
                                  requiredMessage="#{bundle.CreateUsuariosRequiredMessage_password}">
-                    </input>
-                    
-                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_ciudades}" 
-                                   for="ciudades" />
-                    
-                    <h:selectOneMenu id="ciudades" 
-                                     value="#{usuariosController.selected.ciudades}" 
+                    </input>                    
+                    <h:outputLabel value="#{bundle.CreateUsuariosLabel_ciudades}"
+                                   for="ciudades" />                    
+                    <h:selectOneMenu id="ciudades"
+                                     value="#{usuariosController.selected.ciudades}"
                                      title="#{bundle.CreateUsuariosTitle_ciudades}"
-                                     required="true" 
+                                     required="true"
                                      requiredMessage="#{bundle.CreateUsuariosRequiredMessage_ciudades}">
                         <f:selectItems value="#{ciudadesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                     <button jsf:actionListener="#{usuariosController.create}" 
+                     <button jsf:actionListener="#{usuariosController.create}"
                              type="submit"
+                             class="input"
                              value="#{bundle.CreateUsuariosSaveLink}" >
                          Registrarse!
                      </button>
-                     
+                   </div>
                 </h:panelGrid>
-                
-               
-                
-       
-              
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>
